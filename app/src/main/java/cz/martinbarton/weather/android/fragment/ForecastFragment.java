@@ -40,16 +40,14 @@ import cz.martinbarton.weather.android.utility.NetworkManager;
 /**
  * Created by Martin on 8.1.2015.
  */
-public class ForecastFragment extends TaskFragment implements OnLoadDataListener, GeolocationListener, APICallListener, SharedPreferences.OnSharedPreferenceChangeListener {
+public class ForecastFragment extends TaskFragment implements OnLoadDataListener, GeolocationListener, APICallListener {
     private String TAG = "ForecastFragment";
-    private boolean mIsCelsius = true;
     private ForecastEntity mForecast;
     private View mRootView;
     private Geolocation mGeolocation = null;
     private Location mLocation = null;
     private APICallManager mAPICallManager = new APICallManager();
     private SharedPreferences mSharedPreferences;
-    private SharedPreferences.OnSharedPreferenceChangeListener mPreferencesListenner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -203,21 +201,16 @@ public class ForecastFragment extends TaskFragment implements OnLoadDataListener
 
     private void renderView() {
         String[] heatIndex;
-        String temp = PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("units_temperature", null);
+        String preferencesTemperature = mSharedPreferences.getString("units_temperature", "Celsius");
 
-        if (temp.equals("Celsius")) {
-            mIsCelsius = true;
-        } else {
-            mIsCelsius = false;
-        }
-
-        Logcat.e(TAG, temp);
-
-        if (mIsCelsius) {
+        if (preferencesTemperature.equals("Celsius")) {
             heatIndex = mForecast.getHeatIndexC();
         } else {
             heatIndex = mForecast.getHeatIndexF();
         }
+
+        Logcat.i(TAG, "preferencesTemperature " + preferencesTemperature);
+
         ((ListView) mRootView.findViewById(R.id.fragment_forecast_listview)).setAdapter(new ForecastAdapter(getActivity().getApplicationContext(), mForecast.getDate(), heatIndex, mForecast.getWeatherDesc(), mForecast.getWeatherIconUrl()));
     }
 
@@ -301,18 +294,5 @@ public class ForecastFragment extends TaskFragment implements OnLoadDataListener
                 showError();
             }
         });
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (sharedPreferences.getString("units_temperature", null).equals("Celsius")) {
-            mIsCelsius = true;
-        } else {
-            mIsCelsius = false;
-        }
-
-        renderView();
-
-        Logcat.e(TAG, sharedPreferences.getString("units_temperature", null));
     }
 }

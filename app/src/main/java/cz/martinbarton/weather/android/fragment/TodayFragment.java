@@ -43,8 +43,6 @@ import cz.martinbarton.weather.android.utility.NetworkManager;
  */
 public class TodayFragment extends TaskFragment implements OnLoadDataListener, GeolocationListener, APICallListener {
     private String TAG = "TodayFragment";
-    private boolean mIsCelsius = true;
-    private boolean mIsMeters = true;
     private TodayEntity mToday;
     private View mRootView;
     private Geolocation mGeolocation = null;
@@ -205,38 +203,26 @@ public class TodayFragment extends TaskFragment implements OnLoadDataListener, G
 
     private void renderView() {
 
-        String len = PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("units_length", null);
-        String temp = PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("units_temperature", null);
-
-        if (len.equals("Meters")) {
-            mIsMeters = true;
-        } else {
-            mIsMeters = false;
-        }
-
-        if (temp.equals("Celsius")) {
-            mIsCelsius = true;
-        } else {
-            mIsCelsius = false;
-        }
+        String preferencesLength = mSharedPreferences.getString("units_length", "Meters");
+        String preferencesTemperature = mSharedPreferences.getString("units_temperature", "Celsius");
 
         String temperature = new String();
         String length = new String();
 
-        if (mIsCelsius) {
-            temperature = mToday.getTempC();
-        } else {
-            temperature = mToday.getTempF();
-        }
-
-        if (mIsMeters) {
+        if (preferencesLength.equals("Meters")) {
             length = mToday.getWindspeedKmph();
         } else {
             length = mToday.getWindspeedMiles();
         }
 
-        Logcat.e("length " + mIsMeters, length);
-        Logcat.e("temperature " + mIsCelsius, temperature);
+        if (preferencesTemperature.equals("Celsius")) {
+            temperature = mToday.getTempC();
+        } else {
+            temperature = mToday.getTempF();
+        }
+
+        Logcat.i(TAG, "preferencesLength " + preferencesLength);
+        Logcat.i(TAG, "preferencesTemperature " + preferencesTemperature);
 
         ((TextView) mRootView.findViewById(R.id.fragment_today_city_state)).setText(mToday.getAreaName() + ", " + mToday.getCountry());
         ((TextView) mRootView.findViewById(R.id.fragment_today_weather)).setText(temperature + " | " + mToday.getWeatherDesc());
@@ -248,7 +234,6 @@ public class TodayFragment extends TaskFragment implements OnLoadDataListener, G
 
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.displayImage(mToday.getWeatherIconUrl(), ((ImageView) mRootView.findViewById(R.id.fragment_today_image)));
-        Logcat.e("image", mToday.getWeatherIconUrl());
     }
 
     @Override
