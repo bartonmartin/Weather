@@ -1,25 +1,25 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
+	<!-- Default screen margins, per the Android Design guidelines. -->
 
-    <dimen name="global_padding">4dp</dimen>
-    <dimen name="global_margin">4dp</dimen>
-    <dimen name="global_margin_big">16dp</dimen>
-    <dimen name="global_separator">1dp</dimen>
-    <dimen name="global_separator_long">100dp</dimen>
-    <dimen name="global_topbar_title">18dip</dimen>
+	<dimen name="global_padding">4dp</dimen>
+	<dimen name="global_margin">4dp</dimen>
+	<dimen name="global_margin_big">16dp</dimen>
+	<dimen name="global_separator">1dp</dimen>
+	<dimen name="global_separator_long">100dp</dimen>
+	<dimen name="global_topbar_title">18dip</dimen>
 
-    <dimen name="view_sidemenu_width">240dp</dimen>
-    <dimen name="view_sidemenu_item">22dip</dimen>
+	<dimen name="view_sidemenu_width">240dp</dimen>
+	<dimen name="view_sidemenu_item">22dip</dimen>
 
-    <dimen name="fragment_forecast_day">33dip</dimen>
-    <dimen name="fragment_forecast_condition">18dip</dimen>
-    <dimen name="fragment_forecast_temperature">33dip</dimen>
+	<dimen name="fragment_forecast_day">33dip</dimen>
+	<dimen name="fragment_forecast_condition">18dip</dimen>
+	<dimen name="fragment_forecast_temperature">33dip</dimen>
 
-    <dimen name="fragment_today_image">60dp</dimen>
-    <dimen name="fragment_today_image_big">96dp</dimen>
-    <dimen name="fragment_today_city_state">12dip</dimen>
-    <dimen name="fragment_today_temperature_condition">33dip</dimen>
-    <dimen name="fragment_today_informations">20dip</dimen>
+	<dimen name="fragment_today_image">60dp</dimen>
+	<dimen name="fragment_today_image_big">96dp</dimen>
+	<dimen name="fragment_today_city_state">12dip</dimen>
+	<dimen name="fragment_today_temperature_condition">33dip</dimen>
+	<dimen name="fragment_today_informations">20dip</dimen>
 
-    <dimen name="placeholder_offline">22sp</dimen>
+	<dimen name="placeholder_offline">22sp</dimen>
 </resources>

@@ -1,283 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/global_padding">
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="@dimen/global_padding">
 
-    <!-- content container -->
-    <LinearLayout
-        android:id="@+id/fragment_today_container_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+	<!-- content container -->
+	<LinearLayout
+		android:id="@+id/fragment_today_container_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="100"
-            android:gravity="center"
-            android:orientation="vertical">
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="100"
+			android:gravity="center"
+			android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5" />
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="5"/>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="35">
+			<RelativeLayout
+				android:layout_width="wrap_content"
+				android:layout_height="0dp"
+				android:layout_weight="35">
 
-                <ImageView
-                    android:id="@+id/fragment_today_image"
-                    android:layout_width="@dimen/fragment_today_image"
-                    android:layout_height="@dimen/fragment_today_image"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true" />
+				<ImageView
+					android:id="@+id/fragment_today_image"
+					android:layout_width="@dimen/fragment_today_image"
+					android:layout_height="@dimen/fragment_today_image"
+					android:layout_centerHorizontal="true"
+					android:layout_centerVertical="true"/>
 
-                <ImageView
-                    android:layout_width="@dimen/fragment_today_image_big"
-                    android:layout_height="@dimen/fragment_today_image_big"
-                    android:background="@drawable/overlay_weather_status_today"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true" />
-            </RelativeLayout>
+				<ImageView
+					android:layout_width="@dimen/fragment_today_image_big"
+					android:layout_height="@dimen/fragment_today_image_big"
+					android:layout_centerHorizontal="true"
+					android:layout_centerVertical="true"
+					android:background="@drawable/overlay_weather_status_today"/>
+			</RelativeLayout>
 
 
-            <TextView
-                android:id="@+id/fragment_today_city_state"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:ellipsize="end"
-                android:gravity="bottom"
-                android:textSize="@dimen/fragment_today_city_state"
-                android:textColor="@color/fragment_today_city_state"
-                android:fontFamily="sans-serif-light" />
+			<TextView
+				android:id="@+id/fragment_today_city_state"
+				android:layout_width="wrap_content"
+				android:layout_height="0dp"
+				android:layout_weight="10"
+				android:ellipsize="end"
+				android:fontFamily="sans-serif-light"
+				android:gravity="bottom"
+				android:textColor="@color/fragment_today_city_state"
+				android:textSize="@dimen/fragment_today_city_state"/>
 
-            <TextView
-                android:id="@+id/fragment_today_weather"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:textSize="@dimen/fragment_today_temperature_condition"
-                android:textColor="@color/fragment_today_temperature_condition"
-                android:fontFamily="sans-serif-medium" />
+			<TextView
+				android:id="@+id/fragment_today_weather"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="10"
+				android:ellipsize="end"
+				android:fontFamily="sans-serif-medium"
+				android:gravity="center"
+				android:textColor="@color/fragment_today_temperature_condition"
+				android:textSize="@dimen/fragment_today_temperature_condition"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10" />
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="10"/>
 
-        </LinearLayout>
+		</LinearLayout>
 
-        <View
-            android:layout_width="@dimen/global_separator"
-            android:layout_height="@dimen/global_separator_long"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/global_margin_big"
-            android:background="@android:color/darker_gray" />
+		<View
+			android:layout_width="@dimen/global_separator"
+			android:layout_height="@dimen/global_separator_long"
+			android:layout_gravity="center"
+			android:layout_margin="@dimen/global_margin_big"
+			android:background="@android:color/darker_gray"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="100"
-            android:gravity="center"
-            android:orientation="vertical">
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="100"
+			android:gravity="center"
+			android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10" />
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="10"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="50"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_weight="50"
+				android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="@dimen/global_padding">
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="100"
+					android:gravity="center"
+					android:orientation="vertical"
+					android:padding="@dimen/global_padding">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:background="@drawable/ic_weather_humidity" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:background="@drawable/ic_weather_humidity"/>
 
-                    <TextView
-                        android:id="@+id/fragment_today_humidity_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:textSize="@dimen/fragment_today_informations"
-                        android:textColor="@color/fragment_today_informations"
-                        android:fontFamily="sans-serif-medium" />
+					<TextView
+						android:id="@+id/fragment_today_humidity_text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:fontFamily="sans-serif-medium"
+						android:textColor="@color/fragment_today_informations"
+						android:textSize="@dimen/fragment_today_informations"/>
 
-                </LinearLayout>
+				</LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="@dimen/global_padding">
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="100"
+					android:gravity="center"
+					android:orientation="vertical"
+					android:padding="@dimen/global_padding">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:background="@drawable/ic_weather_precipitation" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:background="@drawable/ic_weather_precipitation"/>
 
-                    <TextView
-                        android:id="@+id/fragment_today_precipitation_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:textSize="@dimen/fragment_today_informations"
-                        android:textColor="@color/fragment_today_informations"
-                        android:fontFamily="sans-serif-medium" />
+					<TextView
+						android:id="@+id/fragment_today_precipitation_text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:fontFamily="sans-serif-medium"
+						android:textColor="@color/fragment_today_informations"
+						android:textSize="@dimen/fragment_today_informations"/>
 
-                </LinearLayout>
+				</LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="@dimen/global_padding">
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="100"
+					android:gravity="center"
+					android:orientation="vertical"
+					android:padding="@dimen/global_padding">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:background="@drawable/ic_weather_pressure" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:background="@drawable/ic_weather_pressure"/>
 
-                    <TextView
-                        android:id="@+id/fragment_today_pressure_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:textSize="@dimen/fragment_today_informations"
-                        android:textColor="@color/fragment_today_informations"
-                        android:fontFamily="sans-serif-medium" />
+					<TextView
+						android:id="@+id/fragment_today_pressure_text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:fontFamily="sans-serif-medium"
+						android:textColor="@color/fragment_today_informations"
+						android:textSize="@dimen/fragment_today_informations"/>
 
-                </LinearLayout>
-            </LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="50"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_gravity="center_horizontal"
+				android:layout_weight="50"
+				android:orientation="horizontal">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50" />
+				<View
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="50"/>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="@dimen/global_padding">
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="100"
+					android:gravity="center"
+					android:orientation="vertical"
+					android:padding="@dimen/global_padding">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:background="@drawable/ic_weather_wind_speed" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:background="@drawable/ic_weather_wind_speed"/>
 
-                    <TextView
-                        android:id="@+id/fragment_today_wind_speed_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:textSize="@dimen/fragment_today_informations"
-                        android:textColor="@color/fragment_today_informations"
-                        android:fontFamily="sans-serif-medium" />
+					<TextView
+						android:id="@+id/fragment_today_wind_speed_text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:fontFamily="sans-serif-medium"
+						android:textColor="@color/fragment_today_informations"
+						android:textSize="@dimen/fragment_today_informations"/>
 
-                </LinearLayout>
+				</LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="@dimen/global_padding">
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="100"
+					android:gravity="center"
+					android:orientation="vertical"
+					android:padding="@dimen/global_padding">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:background="@drawable/ic_weather_direction" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:background="@drawable/ic_weather_direction"/>
 
-                    <TextView
-                        android:id="@+id/fragment_today_wind_dir_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/global_margin"
-                        android:textSize="@dimen/fragment_today_informations"
-                        android:textColor="@color/fragment_today_informations"
-                        android:fontFamily="sans-serif-medium" />
+					<TextView
+						android:id="@+id/fragment_today_wind_dir_text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="@dimen/global_margin"
+						android:fontFamily="sans-serif-medium"
+						android:textColor="@color/fragment_today_informations"
+						android:textSize="@dimen/fragment_today_informations"/>
 
-                </LinearLayout>
+				</LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50" />
+				<View
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="50"/>
 
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
 
-    <!-- progress container -->
-    <FrameLayout
-        android:id="@+id/fragment_today_container_progress"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+	<!-- progress container -->
+	<FrameLayout
+		android:id="@+id/fragment_today_container_progress"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:visibility="gone">
 
-        <include layout="@layout/placeholder_progress" />
+		<include layout="@layout/placeholder_progress"/>
 
-    </FrameLayout>
+	</FrameLayout>
 
-    <!-- offline container -->
-    <FrameLayout
-        android:id="@+id/fragment_today_container_offline"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+	<!-- offline container -->
+	<FrameLayout
+		android:id="@+id/fragment_today_container_offline"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:visibility="gone">
 
-        <include layout="@layout/placeholder_offline" />
+		<include layout="@layout/placeholder_offline"/>
 
-    </FrameLayout>
+	</FrameLayout>
 
-    <!-- error container -->
-    <FrameLayout
-        android:id="@+id/fragment_today_container_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+	<!-- error container -->
+	<FrameLayout
+		android:id="@+id/fragment_today_container_error"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:visibility="gone">
 
-        <include layout="@layout/placeholder_error" />
+		<include layout="@layout/placeholder_error"/>
 
-    </FrameLayout>
+	</FrameLayout>
 
 </RelativeLayout>
 

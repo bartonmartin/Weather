@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="prefs_key_units_length">units_length</string>
-    <string name="prefs_title_units_length">Units of length</string>
-    <string name="prefs_default_units_length">Meters</string>
+	<string name="prefs_key_units_length">units_length</string>
+	<string name="prefs_title_units_length">Units of length</string>
+	<string name="prefs_default_units_length">Meters</string>
 
-    <string name="prefs_key_units_temperature">units_temperature</string>
-    <string name="prefs_title_units_temperature">Units of temperature</string>
-    <string name="prefs_default_units_temperature">Celsius</string>
+	<string name="prefs_key_units_temperature">units_temperature</string>
+	<string name="prefs_title_units_temperature">Units of temperature</string>
+	<string name="prefs_default_units_temperature">Celsius</string>
 
-    <string-array name="units_length">
-        <item>Meters</item>
-        <item>Miles</item>
-    </string-array>
+	<string-array name="units_length">
+		<item>Meters</item>
+		<item>Miles</item>
+	</string-array>
 
-    <string-array name="units_temperature">
-        <item>Celsius</item>
-        <item>Fahrenheit</item>
-    </string-array>
+	<string-array name="units_temperature">
+		<item>Celsius</item>
+		<item>Fahrenheit</item>
+	</string-array>
 
 </resources>

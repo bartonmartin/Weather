@@ -11,20 +11,20 @@ import cz.martinbarton.weather.android.listener.OnLoadDataListener;
 public class LoadDataTask extends AsyncTask<Void, Void, String>
 {
 	private WeakReference<OnLoadDataListener> mOnLoadDataListener;
-	
-	
+
+
 	public LoadDataTask(OnLoadDataListener onLoadDataListener)
 	{
 		setListener(onLoadDataListener);
 	}
-	
-	
+
+
 	public void setListener(OnLoadDataListener onLoadDataListener)
 	{
 		mOnLoadDataListener = new WeakReference<OnLoadDataListener>(onLoadDataListener);
 	}
-	
-	
+
+
 	@Override
 	protected String doInBackground(Void... params)
 	{
@@ -39,13 +39,13 @@ public class LoadDataTask extends AsyncTask<Void, Void, String>
 		}
 		return null;
 	}
-	
-	
+
+
 	@Override
 	protected void onPostExecute(String result)
 	{
 		if(isCancelled()) return;
-		
+
 		OnLoadDataListener listener = mOnLoadDataListener.get();
 		if(listener != null)
 		{

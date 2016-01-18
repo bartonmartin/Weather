@@ -24,139 +24,179 @@ import cz.martinbarton.weather.android.adapter.DrawerAdapter;
 import cz.martinbarton.weather.android.fragment.ForecastFragment;
 import cz.martinbarton.weather.android.fragment.TodayFragment;
 
+
 /**
  * Created by Martin on 8.1.2015.
  */
-public class MainActivity extends ActionBarActivity {
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private ListView mDrawerListView;
-    private Toolbar mToolbar;
-    private String[] mTitles;
+public class MainActivity extends ActionBarActivity
+{
+	private DrawerLayout mDrawerLayout;
+	private ActionBarDrawerToggle mDrawerToggle;
+	private ListView mDrawerListView;
+	private Toolbar mToolbar;
+	private String[] mTitles;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+	public static final String KEY_UNITS_TEMPERATURE = "units_temperature";
+	public static final String KEY_UNITS_LENGHT = "units_length";
+	public static final String UNITS_TEMPERATURE_C = "Celsius";
+	public static final String UNITS_LENGHT_M = "Meters";
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
 
-        setupDrawer(savedInstanceState);
-    }
 
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectDrawerItem(position);
-        }
-    }
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-    @Override
-    public void setTitle(CharSequence title) {
-        getSupportActionBar().setTitle(title);
-    }
+		mToolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(mToolbar);
 
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        mDrawerToggle.syncState();
-    }
+		setupDrawer(savedInstanceState);
+	}
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mDrawerToggle.onConfigurationChanged(newConfig);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
-        return true;
-    }
+	private class DrawerItemClickListener implements ListView.OnItemClickListener
+	{
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+		{
+			selectDrawerItem(position);
+		}
+	}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                showSettings();
-                return true;
-            case R.id.action_about:
-                showAbout();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
-    private void showSettings() {
-        startActivity(new Intent(this, SettingsActivity.class));
-    }
+	@Override
+	public void setTitle(CharSequence title)
+	{
 
-    private void showAbout() {
-        // create and show the dialog
-        ContextThemeWrapper themedContext = new ContextThemeWrapper(this, android.support.v7.appcompat.R.style.Theme_AppCompat_Light);
-        AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
-        builder.setTitle(getResources().getString(R.string.action_about));
-        builder.setMessage(getResources().getString(R.string.placeholder_about_text))
-                .setCancelable(false)
-                .setPositiveButton(getResources().getString(R.string.placegolder_about_positive), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
+		getSupportActionBar().setTitle(title);
+	}
 
-    private void setupDrawer(Bundle savedInstanceState) {
-        Integer[] icons = new Integer[2];
-        icons[0] = R.drawable.ic_drawer_today_dark;
-        icons[1] = R.drawable.ic_drawer_forecast_dark;
 
-        // reference
-        mTitles = getResources().getStringArray(R.array.view_sidemenu_items);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerListView = (ListView) findViewById(R.id.sidemenu);
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState)
+	{
+		super.onPostCreate(savedInstanceState);
+		mDrawerToggle.syncState();
+	}
 
-        // set drawer
-        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        // set up the drawer's list view with items and click listener
-        mDrawerListView.setAdapter(new DrawerAdapter(this, mTitles, icons));
-        mDrawerListView.setOnItemClickListener(new DrawerItemClickListener());
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.app_name, R.string.app_name);
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+	@Override
+	public void onConfigurationChanged(Configuration newConfig)
+	{
+		super.onConfigurationChanged(newConfig);
+		mDrawerToggle.onConfigurationChanged(newConfig);
+	}
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
 
-        if (savedInstanceState == null) {
-            selectDrawerItem(0);
-        }
-    }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main, menu);
+		return true;
+	}
 
-    private void selectDrawerItem(int position) {
-        // update the main content by replacing fragments
-        Fragment fragment = null;
 
-        if (position == 0) {
-            // Today Fragment
-            fragment = new TodayFragment();
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch(item.getItemId())
+		{
+			case R.id.action_settings:
+				showSettings();
+				return true;
+			case R.id.action_about:
+				showAbout();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+	}
 
-        } else {
-            // Forecast Fragment
-            fragment = new ForecastFragment();
-        }
 
-        //show and replace fragment
-        if (fragment != null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commitAllowingStateLoss();
-        }
+	private void showSettings()
+	{
+		startActivity(new Intent(this, SettingsActivity.class));
+	}
 
-        // update selected item and title, then close the drawer
-        mDrawerListView.setItemChecked(position, true);
-        setTitle(mTitles[position]);
-        mDrawerLayout.closeDrawer(mDrawerListView);
-    }
+
+	private void showAbout()
+	{
+		// create and show the dialog
+		ContextThemeWrapper themedContext = new ContextThemeWrapper(this, android.support.v7.appcompat.R.style.Theme_AppCompat_Light);
+		AlertDialog.Builder builder = new AlertDialog.Builder(themedContext);
+		builder.setTitle(getResources().getString(R.string.action_about));
+		builder.setMessage(getResources().getString(R.string.placeholder_about_text))
+				.setCancelable(false)
+				.setPositiveButton(getResources().getString(R.string.placegolder_about_positive), new DialogInterface.OnClickListener()
+				{
+					public void onClick(DialogInterface dialog, int id)
+					{
+					}
+				});
+		AlertDialog alert = builder.create();
+		alert.show();
+	}
+
+
+	private void setupDrawer(Bundle savedInstanceState)
+	{
+		Integer[] icons = new Integer[2];
+		icons[0] = R.drawable.ic_drawer_today_dark;
+		icons[1] = R.drawable.ic_drawer_forecast_dark;
+
+		// reference
+		mTitles = getResources().getStringArray(R.array.view_sidemenu_items);
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerListView = (ListView) findViewById(R.id.sidemenu);
+
+		// set drawer
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+		// set up the drawer's list view with items and click listener
+		mDrawerListView.setAdapter(new DrawerAdapter(this, mTitles, icons));
+		mDrawerListView.setOnItemClickListener(new DrawerItemClickListener());
+
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.app_name, R.string.app_name);
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setHomeButtonEnabled(true);
+
+		if(savedInstanceState == null)
+		{
+			selectDrawerItem(0);
+		}
+	}
+
+
+	private void selectDrawerItem(int position)
+	{
+		// update the main content by replacing fragments
+		Fragment fragment = null;
+
+		if(position == 0)
+		{
+			// Today Fragment
+			fragment = new TodayFragment();
+
+		}
+		else
+		{
+			// Forecast Fragment
+			fragment = new ForecastFragment();
+		}
+
+		//show and replace fragment
+		if(fragment != null)
+		{
+			getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commitAllowingStateLoss();
+		}
+
+		// update selected item and title, then close the drawer
+		mDrawerListView.setItemChecked(position, true);
+		setTitle(mTitles[position]);
+		mDrawerLayout.closeDrawer(mDrawerListView);
+	}
 }

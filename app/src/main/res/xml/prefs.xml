@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListPreference
-        android:key="@string/prefs_key_units_length"
-        android:title="@string/prefs_title_units_length"
-        android:defaultValue="Meters"
-        android:summary="%s"
-        android:entries="@array/units_length"
-        android:entryValues="@array/units_length"
-        android:persistent="true" />
+	<ListPreference
+		android:defaultValue="Meters"
+		android:entries="@array/units_length"
+		android:entryValues="@array/units_length"
+		android:key="@string/prefs_key_units_length"
+		android:persistent="true"
+		android:summary="%s"
+		android:title="@string/prefs_title_units_length"/>
 
-    <ListPreference
-        android:key="@string/prefs_key_units_temperature"
-        android:title="@string/prefs_title_units_temperature"
-        android:defaultValue="Celsius"
-        android:summary="%s"
-        android:entries="@array/units_temperature"
-        android:entryValues="@array/units_temperature"
-        android:persistent="true" />
+	<ListPreference
+		android:defaultValue="Celsius"
+		android:entries="@array/units_temperature"
+		android:entryValues="@array/units_temperature"
+		android:key="@string/prefs_key_units_temperature"
+		android:persistent="true"
+		android:summary="%s"
+		android:title="@string/prefs_title_units_temperature"/>
 
 
 </PreferenceScreen>

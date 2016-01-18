@@ -13,87 +13,105 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import cz.martinbarton.weather.android.R;
 import cz.martinbarton.weather.android.entity.ForecastEntity;
 
+
 /**
  * Created by Martin on 8.1.2015.
  */
-public class ForecastAdapter extends BaseAdapter {
-    private Context mContext;
-    private String[] mDateList;
-    private String[] mTemperatureList;
-    private String[] mWeatherDescList;
-    private String[] mWeatherIconUrlList;
+public class ForecastAdapter extends BaseAdapter
+{
+	private Context mContext;
+	private String[] mDateList;
+	private String[] mTemperatureList;
+	private String[] mWeatherDescList;
+	private String[] mWeatherIconUrlList;
 
-    public ForecastAdapter(Context context, String[] dateList, String[] temperatureList, String[] weatherDescList, String[] weatherIconUrlList) {
-        this.mContext = context;
-        this.mDateList = dateList;
-        this.mTemperatureList = temperatureList;
-        this.mWeatherDescList = weatherDescList;
-        this.mWeatherIconUrlList = weatherIconUrlList;
-    }
 
-    public ForecastAdapter(Context applicationContext, ForecastEntity mForecast) {
-    }
+	public ForecastAdapter(Context context, String[] dateList, String[] temperatureList, String[] weatherDescList, String[] weatherIconUrlList)
+	{
+		this.mContext = context;
+		this.mDateList = dateList;
+		this.mTemperatureList = temperatureList;
+		this.mWeatherDescList = weatherDescList;
+		this.mWeatherIconUrlList = weatherIconUrlList;
+	}
 
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        // inflate view
-        View view = convertView;
-        if (view == null) {
-            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.adapter_forecast, parent, false);
 
-            // view holder
-            ViewHolder holder = new ViewHolder();
-            holder.dayTextView = (TextView) view.findViewById(R.id.adapter_forecast_day);
-            holder.temperatureTextView = (TextView) view.findViewById(R.id.adapter_forecast_temperature);
-            holder.weatherTextView = (TextView) view.findViewById(R.id.adapter_forecast_weather);
-            holder.iconImageView = (ImageView) view.findViewById(R.id.adapter_forecast_icon);
-            view.setTag(holder);
-        }
+	public ForecastAdapter(Context applicationContext, ForecastEntity mForecast)
+	{
+	}
 
-        // entity
-        String day = (String) mDateList[position];
-        String temperature = (String) mTemperatureList[position];
-        String weather = (String) mWeatherDescList[position];
-        String weatherIcon = (String) mWeatherIconUrlList[position];
 
-        if (day != null && temperature != null && weather != null && weatherIcon != null) {
-            // view holder
-            ViewHolder holder = (ViewHolder) view.getTag();
+	@Override
+	public View getView(final int position, View convertView, ViewGroup parent)
+	{
+		// inflate view
+		View view = convertView;
+		if(view == null)
+		{
+			LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			view = inflater.inflate(R.layout.adapter_forecast, parent, false);
 
-            // content
-            holder.dayTextView.setText(day);
-            holder.temperatureTextView.setText(temperature);
-            holder.weatherTextView.setText(weather);
+			// view holder
+			ViewHolder holder = new ViewHolder();
+			holder.dayTextView = (TextView) view.findViewById(R.id.adapter_forecast_day);
+			holder.temperatureTextView = (TextView) view.findViewById(R.id.adapter_forecast_temperature);
+			holder.weatherTextView = (TextView) view.findViewById(R.id.adapter_forecast_weather);
+			holder.iconImageView = (ImageView) view.findViewById(R.id.adapter_forecast_icon);
+			view.setTag(holder);
+		}
 
-            ImageLoader imageLoader = ImageLoader.getInstance();
-            imageLoader.displayImage(weatherIcon, holder.iconImageView);
-        }
+		// entity
+		String day = (String) mDateList[position];
+		String temperature = (String) mTemperatureList[position];
+		String weather = (String) mWeatherDescList[position];
+		String weatherIcon = (String) mWeatherIconUrlList[position];
 
-        return view;
-    }
+		if(day != null && temperature != null && weather != null && weatherIcon != null)
+		{
+			// view holder
+			ViewHolder holder = (ViewHolder) view.getTag();
 
-    @Override
-    public int getCount() {
-        if (mDateList != null) return mDateList.length;
-        else return 0;
-    }
+			// content
+			holder.dayTextView.setText(day);
+			holder.temperatureTextView.setText(temperature);
+			holder.weatherTextView.setText(weather);
 
-    @Override
-    public Object getItem(int position) {
-        if (mDateList != null) return mDateList[position];
-        else return null;
-    }
+			ImageLoader imageLoader = ImageLoader.getInstance();
+			imageLoader.displayImage(weatherIcon, holder.iconImageView);
+		}
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+		return view;
+	}
 
-    static class ViewHolder {
-        TextView dayTextView;
-        TextView temperatureTextView;
-        TextView weatherTextView;
-        ImageView iconImageView;
-    }
+
+	@Override
+	public int getCount()
+	{
+		if(mDateList != null) return mDateList.length;
+		else return 0;
+	}
+
+
+	@Override
+	public Object getItem(int position)
+	{
+		if(mDateList != null) return mDateList[position];
+		else return null;
+	}
+
+
+	@Override
+	public long getItemId(int position)
+	{
+		return position;
+	}
+
+
+	static class ViewHolder
+	{
+		TextView dayTextView;
+		TextView temperatureTextView;
+		TextView weatherTextView;
+		ImageView iconImageView;
+	}
 }
